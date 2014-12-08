@@ -1,0 +1,103 @@
+import sys
+import re
+from substring import *
+
+##########################################################################
+# Function    : filterWordsBasedOnLength
+# Parameters  : jumbledWord(String) and dictionary reference word(String)
+# Returns     : String
+# Description : This function matches the two given string for 
+#               their length and returns the word if the lenghts are same.
+##########################################################################
+
+def filterWordsBasedOnLength(jumbledWord,word):
+    if len(jumbledWord) == len(word):
+        return word
+
+
+##########################################################################
+# Function    : computeValuForEachWord
+# Parameters  : filteredWord(String) and jumbledWord(String)
+# Returns     : boolean
+# Description : This computes the unicode value of each sting to filter out
+#               the words and then if the value matches it then checks
+#  whether the characters match if they do it return true else
+#false
+##########################################################################
+   
+def computeValuForEachWord(filteredWord,jumbledWord):
+    filteredWordValue = 0
+    jumbledWordValue = 0
+    for character in filteredWord:
+        filteredWordValue += ord(character)
+
+    for char in jumbledWord:
+        jumbledWordValue += ord(char)
+    filteredWord = list(filteredWord)
+    if filteredWordValue == jumbledWordValue:
+        for w in jumbledWord:
+            if w not in filteredWord:
+                return False
+            else:
+                continue
+                #del filteredWord[filteredWord.index(w)] #For filtering out cases where value becomes same due to multi occurence of same char
+        return True
+    else:
+        return False
+
+
+# This code assumes that the input is a jumbled word so it lists all possible corrections for it.I could have added suppport  for checking whether the input is a correct word or not by checking it first in the dictionary and returning only that value .
+
+
+##########################################################################
+# Function    : process()
+# Parameters  : 
+# Returns     : String
+# Description : This is the main process initializer for the code that 
+#               invokes all other functions for computations
+##########################################################################
+
+def process():
+
+    try:
+        inputFile = open("/home/bergur/Desktop/pythonStuff/islenska2-20081208.txt","r")
+    except Exception, e:
+        print "Exception while reading the dictionary file . Following are the details of the exception :\n\r"+ str(e)
+        sys.exit(0)
+    #words = inputFile.read().strip().split("\r\n") #This would be faster but cannot use as it input file format could vary.
+    fileContents = words = inputFile.read().strip() #Striping whitespaces
+    
+    wordsOrig = re.split("[\s\n\r]+",fileContents) #Splitting the file into word tokes based on either spaces/new line/carriage return
+
+    words1 = []
+    words = []
+    for word in wordsOrig:
+        words1.append( word.decode('iso-8859-1').encode('utf-8'))
+    
+    #debug
+    i = 0
+    for word in words1:
+        uniWord = word.decode('utf8')
+        print type(uniWord)
+
+
+    if len(sys.argv) < 2: #check for whether input specified or not
+        print "No jumbled word specified.Please enter a jumbled word."
+        sys.exit(0)
+    else:
+        wordJumble = unicode(sys.argv[1], 'utf-8')
+        
+        jumbledWords = substr(wordJumble)
+        for jumbledWord in jumbledWords:
+            #print type(jumbledWord)
+            #jumbledWord = sys.argv[1] 
+            filteredWords = [filterWordsBasedOnLength(jumbledWord,word) for word in words]
+            filteredWords = filter(None,filteredWords)
+            for dictionaryWord in filteredWords:
+                #if computeValuForEachWord(dictionaryWord.decode('utf8'),jumbledWord.decode('utf8')):
+                if computeValuForEachWord(dictionaryWord,jumbledWord):
+                    print dictionaryWord
+        
+
+process()
+

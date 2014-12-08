@@ -1,0 +1,14 @@
+import sys
+import re
+from substring import *
+
+
+
+if len(sys.argv) < 2: #check for whether input specified or not
+    print "No jumbled word specified.Please enter a jumbled word."
+    sys.exit(0)
+
+input_string = sys.argv[1]
+uni_input = input_string.encode('utf8')
+
+print type(uni_input)
