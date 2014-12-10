@@ -17,7 +17,7 @@ output_file = sys.argv[2]
 
 # dictionary part
 try:
-    inputFile = open("/home/bergur/Desktop/pythonStuff/islenska2-20081208.txt","r")
+    inputFile = open("islenska2-20081208.txt","r")
 except Exception, e:
     print "Exception while reading the dictionary file . Following are the details of the exception :\n\r"+ str(e)
     sys.exit(0)
@@ -120,12 +120,13 @@ for var in combinations(wordLengths, 4):
     if var[0] + var[1] + var[2] + var[3] == sentanceLength:
         combos4.append(var)
 
+"""
 combos5 = []
 #pair for pair in itertools.combinations(li,2) if sum(pair) == 10
 for var in combinations(wordLengths, 5):
     if var[0] + var[1] + var[2] + var[3] + var[4] == sentanceLength:
         combos5.append(var)
-
+"""
 
 
 
@@ -170,6 +171,7 @@ for combo in combos4:
                     if notToManyRepeats(longWord, uni_input):
                         fourWordCombos.append(longWord)
 
+"""
 fiveWordCombos = []
 for combo in combos5:
     for word1 in lengthWords[combo[0]]:
@@ -180,7 +182,7 @@ for combo in combos5:
                         longWord = word1 + word2 + word3 + word4
                         if notToManyRepeats(longWord, uni_input):
                             fourWordCombos.append(longWord)
-
+"""
 
 
 f = open(output_file, 'w')
@@ -201,6 +203,7 @@ for x in threeWordCombos:
     print x
 
 f.write("four word combos -----------------------------------------------------4\n")
+
 print "four word combos ----------------------------------------------------4"
 for x in fourWordCombos:
     f.write(x.encode('utf8'))
@@ -208,13 +211,14 @@ for x in fourWordCombos:
     print x
 
 
+"""
 f.write("five word combos -----------------------------------------------------5\n")
 print "five word combos ----------------------------------------------------5"
 for x in fiveWordCombos:
     f.write(x.encode('utf8'))
     f.write('\n')
     print x
-
+"""
 """
 print combos2
 print combos3

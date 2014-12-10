@@ -13,7 +13,7 @@ uni_input = unicode(input_string,'utf8')
 
 # dictionary part
 try:
-    inputFile = open("/home/bergur/Desktop/pythonStuff/islenska2-20081208.txt","r")
+    inputFile = open("islenska2-20081208.txt","r")
 except Exception, e:
     print "Exception while reading the dictionary file . Following are the details of the exception :\n\r"+ str(e)
     sys.exit(0)
