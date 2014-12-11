@@ -159,3 +159,23 @@ anagram8-1
 the idea is to iterate recursively
 always passing along the remainder of letters and 
 the sentance aquired so far..
+
+the possibility of having pre compiled anagram groups
+that is groups of words from the dictionary or word list
+that are identical in size and have the same letters.
+then one could recursively iterate through these groups
+in the end acheiving sets of group identities.
+
+
+(group 1) - (group 4) (group 6)
+(group 2) - (group 7) (group 3)
+ect...
+
+proceedure:
+    what groups are a subset of the remainder string
+    for each group do proceedure on group
+    if a group matches exactly the remainder string, push group string to global result array
+    if no group is contained in remainder string
+    quit
+    proceedure( currentGroupString + groupX , remainder_string - groupX )
+
