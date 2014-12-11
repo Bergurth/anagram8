@@ -17,7 +17,7 @@ output_file = sys.argv[2]
 
 # dictionary part
 try:
-    inputFile = open("/home/bergur/Desktop/pythonStuff/islenska2-20081208.txt","r")
+    inputFile = open("./islenska2-20081208.txt","r")
 except Exception, e:
     print "Exception while reading the dictionary file . Following are the details of the exception :\n\r"+ str(e)
     sys.exit(0)
@@ -109,7 +109,7 @@ for key in wordLengths:
 #print lengthWords
 
 #print sentanceLength
-print combos2
+#print combos2
 
 print "###################################################################"
 print uni_input
@@ -167,7 +167,7 @@ for x in threeWordCombos:
     f.write('\n')
     print x
 
-
+"""
 combos4 = []
 #pair for pair in itertools.combinations(li,2) if sum(pair) == 10
 for var in combinations(wordLengths, 4):
@@ -219,6 +219,7 @@ for x in fiveWordCombos:
     print x
 
 """
+
 """
 print combos2
 print combos3

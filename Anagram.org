@@ -148,3 +148,14 @@ greri
 gerur
 greru
 
+
+
+** compleated slow 
+newAnagram2
+anagram8-1
+
+
+** recursive strategy
+the idea is to iterate recursively
+always passing along the remainder of letters and 
+the sentance aquired so far..
