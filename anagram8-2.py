@@ -71,10 +71,6 @@ sentanceLength = len(uni_input)
 
 
 
-
-
-
-
 # main function
 letterWords = []
 for word in words:
@@ -209,7 +205,7 @@ for combo in combos5:
                     for word5 in lengthWords[combo[4]]:
                         longWord = word1 + word2 + word3 + word4 + word5
                         if notToManyRepeats(longWord, uni_input):
-                            fiveWordCombos.append(longWord)
+                            fiveWordCombos.append(word1 + " " + word2 + " " + word3 + " " + word4 + " " + word5)
 
 
 f.write("five word combos -----------------------------------------------------5\n")
