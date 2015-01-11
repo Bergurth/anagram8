@@ -69,24 +69,67 @@ def notToManyRepeats(candidateWord,inputString):
             return False
     return True
 
-sentanceLength = len(uni_input)
+
+def getPossibleWords(uni_input, words):
+    sentanceLength = len(uni_input)
     
-# possible sentances part
-# main function
-letterWords = []
-for word in words:
-    if hasAllLetters(word,uni_input):
-        letterWords.append(word)
-possibleWords = []
-for word in letterWords:
-    if notToManyRepeats(word, uni_input):
-        possibleWords.append(word)
+    # possible sentances part
+    # main function
+    letterWords = []
+    for word in words:
+        if hasAllLetters(word,uni_input):
+            letterWords.append(word)
+    possibleWords = []
+    for word in letterWords:
+        if notToManyRepeats(word, uni_input):
+            possibleWords.append(word)
+
+    return possibleWords
+
+
+possibleWords = getPossibleWords(uni_input, words)
 
 for x in range(len(possibleWords)):
     print str(x) + " " + possibleWords[x]
 
+
+
 numb = int(raw_input("choose a word: \n"))
 
-print possibleWords[numb]
+chooseWord = possibleWords[numb]
 # next is to aquire a new possible words, and possibly
 # a new uni input ...
+
+
+
+input_string = unicode(uni_input)
+
+
+
+for char in chooseWord:
+    input_string = input_string[0:input_string.index(char)] + input_string[input_string.index(char)+1: len(input_string)]
+    #st[0:st.index('f')] + st[st.index('f')+1:len(st)]
+
+
+print input_string
+
+possibleWords2 = getPossibleWords(input_string, possibleWords)
+
+for x in range(len(possibleWords2)):
+    print str(x) + " " + possibleWords2[x]
+
+"""
+# baisic functionality is ready
+
+now it just needs to be looped and cleaned
+and the sentance being made needs to be kept track of,
+
+in the future the option of finding the anagram setances
+of the remainder to a word depth x
+should also be offered
+
+in that case we need a functional version of the
+word depth loops fom anagram8-3 ..
+
+
+"""
