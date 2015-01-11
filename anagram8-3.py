@@ -130,16 +130,16 @@ if(word_depth >= 2):
             combos2.append(var)
 
 
-            twoWordCombos = []
-            for combo in combos2:
-                #print combo[0]
-                #print combo[1]
-                for word1 in lengthWords[combo[0]]:
-                    for word2 in lengthWords[combo[1]]:
-                        longWord = word1 + word2
-                        #print longWord
-                        if notToManyRepeats(longWord, uni_input):
-                            twoWordCombos.append(word1 + " " + word2)
+    twoWordCombos = []
+    for combo in combos2:
+        #print combo[0]
+        #print combo[1]
+        for word1 in lengthWords[combo[0]]:
+            for word2 in lengthWords[combo[1]]:
+                longWord = word1 + word2
+                #print longWord
+                if notToManyRepeats(longWord, uni_input):
+                    twoWordCombos.append(word1 + " " + word2)
 
 
 
@@ -159,15 +159,15 @@ if(word_depth >= 3):
             combos3.append(var)
 
 
-            threeWordCombos = []
-            for combo in combos3:
-                for word1 in lengthWords[combo[0]]:
-                    for word2 in lengthWords[combo[1]]:
-                        for word3 in lengthWords[combo[2]]:
-                            longWord = word1 + word2 + word3
-                            #print longWord
-                            if notToManyRepeats(longWord, uni_input):
-                                threeWordCombos.append(word1 + " " + word2 + " " + word3)
+    threeWordCombos = []
+    for combo in combos3:
+        for word1 in lengthWords[combo[0]]:
+            for word2 in lengthWords[combo[1]]:
+                for word3 in lengthWords[combo[2]]:
+                    longWord = word1 + word2 + word3
+                    #print longWord
+                    if notToManyRepeats(longWord, uni_input):
+                        threeWordCombos.append(word1 + " " + word2 + " " + word3)
 
 
     f.write("three word combos -----------------------------------------------------3\n")
@@ -187,15 +187,15 @@ if(word_depth >= 4):
             combos4.append(var)
 
 
-            fourWordCombos = []
-            for combo in combos4:
-                for word1 in lengthWords[combo[0]]:
-                    for word2 in lengthWords[combo[1]]:
-                        for word3 in lengthWords[combo[2]]:
-                            for word4 in lengthWords[combo[3]]:
-                                longWord = word1 + word2 + word3 + word4
-                                if notToManyRepeats(longWord, uni_input):
-                                    fourWordCombos.append(word1 + " " + word2 + " " + word3 + " " + word4)
+        fourWordCombos = []
+        for combo in combos4:
+            for word1 in lengthWords[combo[0]]:
+                for word2 in lengthWords[combo[1]]:
+                    for word3 in lengthWords[combo[2]]:
+                        for word4 in lengthWords[combo[3]]:
+                            longWord = word1 + word2 + word3 + word4
+                            if notToManyRepeats(longWord, uni_input):
+                                fourWordCombos.append(word1 + " " + word2 + " " + word3 + " " + word4)
 
 
     f.write("four word combos -----------------------------------------------------4\n")
@@ -214,16 +214,16 @@ if(word_depth >= 5):
             combos5.append(var)
 
 
-            fiveWordCombos = []
-            for combo in combos5:
-                for word1 in lengthWords[combo[0]]:
-                    for word2 in lengthWords[combo[1]]:
-                        for word3 in lengthWords[combo[2]]:
-                            for word4 in lengthWords[combo[3]]:
-                                for word5 in lengthWords[combo[4]]:
-                                    longWord = word1 + word2 + word3 + word4 + word5
-                                    if notToManyRepeats(longWord, uni_input):
-                                        fiveWordCombos.append(longWord)
+    fiveWordCombos = []
+    for combo in combos5:
+        for word1 in lengthWords[combo[0]]:
+            for word2 in lengthWords[combo[1]]:
+                for word3 in lengthWords[combo[2]]:
+                    for word4 in lengthWords[combo[3]]:
+                        for word5 in lengthWords[combo[4]]:
+                            longWord = word1 + word2 + word3 + word4 + word5
+                            if notToManyRepeats(longWord, uni_input):
+                                fiveWordCombos.append(longWord)
 
 
     f.write("five word combos -----------------------------------------------------5\n")
